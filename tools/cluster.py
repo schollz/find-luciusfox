@@ -374,9 +374,9 @@ def main(args, config):
         return
     elif command == "initialize":
         print("copying ips")
-        for address in config['pis']:
+        for pi in config['pis']:
             c = 'ssh-copy-id %(address)s'
-            r, code = run_command(c % {'address': address})
+            r, code = run_command(c % {'address': pi['address']})
             if code == 1:
                 print("Could not connect to %s" % address)
                 return
